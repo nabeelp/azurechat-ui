@@ -33,7 +33,7 @@ const ChatRow: FC<ChatRowProps> = (props) => {
   return (
     <div
       className={cn(
-        "container mx-auto max-w-4xl py-6 flex flex-col ",
+        "container mx-auto max-w-4xl py-4 flex flex-col ",
         props.type === "assistant" ? "items-start" : "items-end"
       )}
     >
@@ -42,7 +42,7 @@ const ChatRow: FC<ChatRowProps> = (props) => {
           "flex flex-col  max-w-[690px] border rounded-lg overflow-hidden  p-4 gap-8"
         )}
       >
-        <div className="flex flex-1">
+        {/* <div className="flex flex-1">
           <div className="flex gap-4 items-center flex-1">
             <div className="">
               {isNotNullOrEmpty(props.profilePicture) ? (
@@ -75,7 +75,7 @@ const ChatRow: FC<ChatRowProps> = (props) => {
               <ClipboardIcon size={16} />
             )}
           </Button>
-        </div>
+        </div> */}
 
         <div
           className={cn(
