@@ -6,6 +6,8 @@ import {
   MessageCircle,
   PanelLeftClose,
   PanelRightClose,
+  Speech,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "../theme/theme-toggle";
@@ -36,13 +38,31 @@ export const MainMenu = () => {
             <img src="/ai-icon.png" />
           </Link>
         </Button>
-        <Button
+        {/* <Button
           asChild
           className="rounded-full w-[40px] h-[40px] p-2 text-primary"
           variant={"outline"}
         >
           <Link href="/" title="Chat">
             <MessageCircle />
+          </Link>
+        </Button> */}
+        <Button
+          asChild
+          className="rounded-full w-[40px] h-[40px] p-2 text-primary"
+          variant={"outline"}
+        >
+          <Link href="https://microsoft.sharepoint.com/sites/PCN/SitePages/Find-a-Coach.aspx" title="Find a Coach" target="_blank">
+            <Speech />
+          </Link>
+        </Button>
+        <Button
+          asChild
+          className="rounded-full w-[40px] h-[40px] p-2 text-primary"
+          variant={"outline"}
+        >
+          <Link href="https://whoplus.microsoft.com/" title="Find a Mentor" target="_blank">
+            <Sparkles />
           </Link>
         </Button>
         {session?.user?.isAdmin ? (
