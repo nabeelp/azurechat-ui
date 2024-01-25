@@ -29,7 +29,7 @@
     "eslint": "^8.46.0",
     "eslint-config-next": "^13.4.12",
     "langchain": "^0.0.123",
-    "lucide-react": "^0.264.0",
+    "lucide-react": "^0.314.0",
     "microsoft-cognitiveservices-speech-sdk": "^1.32.0",
     "nanoid": "^4.0.2",
     "next": "^13.5.5",
