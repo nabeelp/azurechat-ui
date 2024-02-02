@@ -1,5 +1,5 @@
 const azureEnvVars = [
-  "AZURE_OPENAI_API_KEY",
+  "OPENAI_API_KEY",
   "AZURE_OPENAI_API_INSTANCE_NAME",
   "AZURE_OPENAI_API_DEPLOYMENT_NAME",
   "AZURE_OPENAI_API_VERSION",
@@ -24,6 +24,7 @@ const azureEnvVars = [
   "ADMIN_EMAIL_ADDRESS",
   "AZURE_SPEECH_REGION",
   "AZURE_SPEECH_KEY",
+  "PUBLIC_PUBLIC_SPEECH_ENABLED",
 ] as const;
 
 type RequiredServerEnvKeys = (typeof azureEnvVars)[number];
