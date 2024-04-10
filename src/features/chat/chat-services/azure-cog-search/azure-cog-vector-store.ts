@@ -25,7 +25,8 @@ type DocumentDeleteModel = {
 export interface AzureCogDocument {}
 
 type AzureCogVectorField = {
-  value: number[];
+  kind: string;
+  vector: number[];
   fields: string;
   k: number;
 };
@@ -41,7 +42,7 @@ type AzureCogRequestObject = {
   search: string;
   facets: string[];
   filter: string;
-  vectors: AzureCogVectorField[];
+  vectorQueries: AzureCogVectorField[];
   top: number;
 };
 
@@ -56,7 +57,7 @@ export const simpleSearch = async (
     search: filter?.search || "*",
     facets: filter?.facets || [],
     filter: filter?.filter || "",
-    vectors: [],
+    vectorQueries: [],
     top: filter?.top || 10,
   };
 
@@ -90,8 +91,8 @@ export const similaritySearchVectorWithScore = async (
     search: filter?.search || "*",
     facets: filter?.facets || [],
     filter: filter?.filter || "",
-    vectors: [
-      { value: embeddings.data[0].embedding, fields: "embedding", k: k },
+    vectorQueries: [
+      { kind: "vector", vector: embeddings.data[0].embedding, fields: "embedding", k: k },
     ],
     top: filter?.top || k,
   };
@@ -269,15 +270,21 @@ const AZURE_SEARCH_INDEX = {
       facetable: false,
       retrievable: true,
       dimensions: 1536,
-      vectorSearchConfiguration: "vectorConfig",
+      vectorSearchProfile: "myHnswProfile",
     },
   ],
   vectorSearch: {
-    algorithmConfigurations: [
+    profiles: [
+      {
+        name: "myHnswProfile",
+        algorithm: "vectorConfig"
+      }
+    ],
+    algorithms: [
       {
         name: "vectorConfig",
         kind: "hnsw",
-      },
-    ],
+      }
+    ]
   },
 };
